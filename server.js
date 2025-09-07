@@ -11,12 +11,6 @@ const server = http.createServer(async(req, res) => {
 
     if(req.method==="GET" && req.url==='/api'){
         await handleGet(res)
-
-    /*
-    Challenge: 
-    1. Add a route for a POST request to '/api'.
-    2. When a request comes in, pass the req and res to handlePost().
-    */
     
         
     }else if(!req.url.startsWith("/api")){
