@@ -1,14 +1,10 @@
-  try {
-    const response = await fetch("/api");
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    const sightings = await response.json();
-    renderCards(sightings);
-  } catch (err) {
-    console.error("Failed to fetch sightings:", err);
-    container.innerHTML = `<p class="error-message">Could not load sightings. The ghouls may have tampered with the network. Please try again later.</p>`;
-  }
+try {
+  const data = await fetch("/api")
+  const response = await data.json()
+  renderCards(response)
+} catch (err) {
+  console.log(err)
+}
 
 function renderCards(cardsData) {
   const container = document.querySelector(".cards-container")
