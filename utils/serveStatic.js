@@ -28,21 +28,6 @@ export default async function serveStatic(baseDir,res,req) {
 
     }else{
       sendResponse(res,500,`<html><h1>Server Error: ${err.code}</h1></html>`,'text/html')
-    }
-
-
-    /*
-Challenge:
-
- If the error code is “ENOENT”, serve the 404.html page.  
- If there’s another error, serve a 500 with this string: 
- `<html><h1>Server Error: ${err.code}</h1></html>`. 
-
-The Content-Type for the 500 can be ‘text/html’.
-*/
-    
+    } 
   }
-
-
-
 }
