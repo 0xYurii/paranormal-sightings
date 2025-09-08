@@ -42,7 +42,7 @@ form.addEventListener("submit", async function (event) {
   try {
     // Send form data using fetch API
     formMessageText.textContent = ""
-    const response = await fetch("/upload-sighting", {
+    const response = await fetch("./api", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
