@@ -15,7 +15,6 @@ export default async function handleGet(res){
 export async function handlePost(req,res){
    try{
       const rawBody=await parseJSONBody(req)
-      console.log('POST request received',rawBody)
       addNewSighting(rawBody)
       sendResponse(res,201,JSON.stringify(rawBody),'application/json')
    }catch(err){
