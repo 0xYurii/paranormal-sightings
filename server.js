@@ -11,6 +11,7 @@ const server = http.createServer(async(req, res) => {
 
     if(req.method==="GET" && req.url==='/api'){
         await handleGet(res)
+
     
         
     }else if(!req.url.startsWith("/api")){

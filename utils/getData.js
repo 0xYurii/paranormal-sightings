@@ -12,6 +12,7 @@ export default async function getData() {
         return parseData
     } catch(err) {
         console.log("Error occurred:", err.message)
+        console.log("Full error:", err)
         return []
     }
 }

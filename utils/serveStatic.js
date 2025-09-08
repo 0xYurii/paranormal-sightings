@@ -28,6 +28,11 @@ export default async function serveStatic(baseDir,res,req) {
 
     }else{
       sendResponse(res,500,`<html><h1>Server Error: ${err.code}</h1></html>`,'text/html')
-    } 
+    }
+
+ 
   }
+
+
+
 }
