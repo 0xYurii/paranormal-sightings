@@ -1,4 +1,8 @@
-function addNewSighting(newSighting) {
+import fs from 'node:fs/promises'
+import path from 'node:path'
+import getData from "./getData.js";
+
+export async function addNewSighting(newSighting) {
 
   try {
 /*
@@ -17,8 +21,15 @@ function addNewSighting(newSighting) {
     
     Bonus: figure out how to prettify the JSON!
 */
+    const dataPath=path.join("data","data.json")
+    const existingData = await getData();
+    existingData.push(newSighting);
+    const data=fs.writeFile(
+        dataPath,
+        JSON.stringify(existingData,null,2),
+        'utf8')
   } catch (err) {
-
+    console.log(err.message)
   }
 
 }

@@ -1,8 +1,8 @@
-import { escape } from "node:querystring"
+
 import getData from "../utils/getData.js"
 import sendResponse from "../utils/sendResponse.js"
 import { parseJSONBody } from '../utils/parseJSONBody.js'
-// import { addNewSighting } from '../utils/addNewSighting.js'
+import { addNewSighting } from '../utils/addNewSighting.js'
 
 export default async function handleGet(res){
    const content=await (getData())
@@ -16,7 +16,7 @@ export async function handlePost(req,res){
    try{
       const rawBody=await parseJSONBody(req)
       console.log('POST request received',rawBody)
-      // addNewSighting(rawBody)
+      addNewSighting(rawBody)
       sendResponse(res,201,JSON.stringify(rawBody),'application/json')
    }catch(err){
       console.log(err)
