@@ -6,4 +6,3 @@ export const sightingEvents=new EventEmitter();
 
 
 sightingEvents.on("sighting-added",createAlert)
- 
