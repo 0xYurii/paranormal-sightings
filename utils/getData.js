@@ -2,7 +2,8 @@ import path from 'node:path'
 import fs from 'node:fs/promises'
 
 export default async function getData() {
-    const dataPath = path.join("data", "data.json")
+    const __dirname = import.meta.dirname;
+    const dataPath = path.join(__dirname, '..', 'data', 'data.json');
     
 
     
