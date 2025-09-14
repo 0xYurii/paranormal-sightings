@@ -1,19 +1,7 @@
-import path from 'node:path'
-import fs from 'node:fs/promises'
+// notice we are now using "with" instead of "assert"
+import data from '../data/data.json' with { type: 'json' };
 
-export default async function getData() {
-    const __dirname = import.meta.dirname;
-    const dataPath = path.join(__dirname, '..', 'data', 'data.json');
-    
-
-    
-    try {
-        const content = await fs.readFile(dataPath, "utf8")
-        const parseData = JSON.parse(content)
-        return parseData
-    } catch(err) {
-        console.log("Error occurred:", err.message)
-        console.log("Full error:", err)
-        return []
-    }
+export default function getData() {
+  // Return the data, which is already a JavaScript object
+  return data;
 }

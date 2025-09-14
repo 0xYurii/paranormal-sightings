@@ -9,7 +9,7 @@ import {stories} from "../data/stories.js"
 
 
 export  async function handleGet(res){
-   const content=await (getData())
+   const content = getData();
    const data= JSON.stringify(content)
    sendResponse(res,200,data,'application/json')
 
