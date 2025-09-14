@@ -1,7 +1,16 @@
-// notice we are now using "with" instead of "assert"
-import data from '../data/data.json' with { type: 'json' };
+import path from 'node:path'
+import fs from 'node:fs/promises'
 
-export default function getData() {
-  // Return the data, which is already a JavaScript object
-  return data;
+export default async function getData() {
+    // This path is correct, the problem was the file was missing on the server.
+    const dataPath = path.join(process.cwd(), 'data', 'data.json');
+    
+    try {
+        const content = await fs.readFile(dataPath, "utf8")
+        const parseData = JSON.parse(content)
+        return parseData
+    } catch(err) {
+        console.log("Error reading data.json:", err.message)
+        return []
+    }
 }
